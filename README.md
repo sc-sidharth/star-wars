@@ -142,31 +142,9 @@ This app uses [SWAPI](https://swapi.dev) - The Star Wars API for all data:
 - Films
 - Species
 
-Data is cached locally for 7 days for optimal performance.
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Visit [vercel.com](https://vercel.com)
-3. Click "Import Project"
-4. Select your GitHub repository
-5. Vercel will auto-detect Vite and deploy!
-
-Your app will be live at: `https://your-project-name.vercel.app`
-
-### Alternative: Deploy to Netlify
-
-1. Push to GitHub
-2. Visit [netlify.com](https://netlify.com)
-3. Connect your repository
-4. Build command: `npm run build`
-5. Publish directory: `dist`
-
 ## 📝 License & Copyright
 
-© 2024 Sidharth Paliwal. All rights reserved.
+© 2025 Sidharth Paliwal. All rights reserved.
 
 **Note:** Star Wars and all related characters are trademarks of Lucasfilm Ltd. This is a fan-made educational project and is not affiliated with or endorsed by Lucasfilm or Disney.
 
@@ -179,13 +157,6 @@ Your app will be live at: `https://your-project-name.vercel.app`
 ## 🤝 Contributing
 
 This is a personal project, but suggestions and feedback are welcome!
-
-## 📧 Contact
-
-**Sidharth Paliwal**
-- Portfolio: [Add your portfolio URL]
-- GitHub: [@sidharthpaliwal](https://github.com/sidharthpaliwal)
-- LinkedIn: [Add your LinkedIn]
 
 ---
 
