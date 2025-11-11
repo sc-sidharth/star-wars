@@ -1,0 +1,247 @@
+/* Holographic Theme CSS Variables and Components */
+
+:root {
+  /* Color Palette */
+  --holo-primary: #00f3ff;
+  --holo-secondary: #0066ff;
+  --holo-accent: #00ffcc;
+  --holo-white: #ffffff;
+  --holo-text: #e0f7ff;
+
+  /* Background Colors */
+  --holo-bg: rgba(0, 20, 40, 0.8);
+  --holo-bg-light: rgba(0, 40, 60, 0.6);
+  --holo-bg-dark: rgba(0, 10, 20, 0.9);
+
+  /* Border and Effects */
+  --holo-border: rgba(0, 243, 255, 0.5);
+  --holo-border-bright: rgba(0, 243, 255, 0.8);
+  --holo-glow: 0 0 10px rgba(0, 243, 255, 0.8);
+  --holo-glow-strong: 0 0 20px rgba(0, 243, 255, 1);
+  --holo-shadow: 0 4px 20px rgba(0, 243, 255, 0.3);
+
+  /* Transitions */
+  --holo-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --holo-transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --holo-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Typography */
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+}
+
+/* Holographic Typography */
+
+.holo-title {
+  font-size: var(--font-size-3xl);
+  color: var(--holo-primary);
+  text-shadow: var(--holo-glow);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.holo-text {
+  color: var(--holo-text);
+  font-size: var(--font-size-base);
+}
+
+.holo-accent {
+  color: var(--holo-accent);
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
+}
+
+/* Holographic Card */
+
+.holo-card {
+  background: var(--holo-bg);
+  border: 1px solid var(--holo-border);
+  border-radius: 8px;
+  padding: var(--spacing-xl);
+  box-shadow: var(--holo-shadow);
+  backdrop-filter: blur(10px);
+  transition: var(--holo-transition);
+  position: relative;
+}
+
+.holo-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--holo-primary),
+    var(--holo-secondary),
+    var(--holo-accent)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.holo-card:hover {
+  border-color: var(--holo-border-bright);
+  box-shadow: var(--holo-glow-strong);
+  transform: translateY(-2px);
+}
+
+/* Holographic Button */
+
+.holo-button {
+  background: var(--holo-bg-light);
+  border: 1px solid var(--holo-border);
+  color: var(--holo-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--holo-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 243, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.holo-button:hover {
+  border-color: var(--holo-primary);
+  box-shadow: var(--holo-glow);
+  transform: scale(1.05);
+}
+
+.holo-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.holo-button:active {
+  transform: scale(0.98);
+}
+
+/* Holographic Input */
+
+.holo-input {
+  background: rgba(0, 20, 40, 0.6);
+  border: 1px solid var(--holo-border);
+  color: var(--holo-text);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  font-size: var(--font-size-base);
+  transition: var(--holo-transition);
+  width: 100%;
+}
+
+.holo-input::placeholder {
+  color: rgba(224, 247, 255, 0.5);
+}
+
+.holo-input:focus {
+  outline: none;
+  border-color: var(--holo-primary);
+  box-shadow: var(--holo-glow);
+  background: rgba(0, 20, 40, 0.8);
+}
+
+/* Holographic Container */
+
+.holo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Holographic Grid */
+
+.holo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) 0;
+}
+
+/* Holographic Divider */
+
+.holo-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--holo-border),
+    transparent
+  );
+  margin: var(--spacing-xl) 0;
+}
+
+/* Loading States */
+
+.holo-loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--holo-border);
+  border-top-color: var(--holo-primary);
+  border-radius: 50%;
+  animation: holo-spin 1s linear infinite;
+}
+
+/* Utility Classes */
+
+.holo-blur {
+  backdrop-filter: blur(10px);
+}
+
+.holo-glow-text {
+  text-shadow: var(--holo-glow);
+}
+
+.holo-glow-box {
+  box-shadow: var(--holo-glow);
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-3xl: 2rem;
+    --font-size-2xl: 1.5rem;
+  }
+
+  .holo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .holo-card {
+    padding: var(--spacing-lg);
+  }
+}

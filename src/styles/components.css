@@ -1,0 +1,308 @@
+/* Component-specific CSS styles */
+
+/* Search Bar Styles */
+.search-bar {
+  animation: slideInTop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Character Card Hover */
+.character-card {
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+.character-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--holo-glow-strong);
+}
+
+/* Character Images - Grayscale by default, color on hover */
+.character-card img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.character-card:hover img {
+  filter: grayscale(0%) !important;
+}
+
+/* Character avatar initials also grayscaled */
+.character-card .character-image > div > div {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.character-card:hover .character-image > div > div {
+  filter: grayscale(0%);
+}
+
+/* Filter Panel Scrollbar */
+.filter-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filter-panel::-webkit-scrollbar-track {
+  background: rgba(0, 20, 40, 0.5);
+  border-radius: 4px;
+}
+
+.filter-panel::-webkit-scrollbar-thumb {
+  background: var(--holo-border);
+  border-radius: 4px;
+}
+
+.filter-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--holo-primary);
+}
+
+/* Results Grid Responsive */
+@media (max-width: 1400px) {
+  .holo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .holo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .holo-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .holo-grid {
+    padding: var(--spacing-sm) 0;
+  }
+}
+
+/* Character Detail Modal */
+.character-detail-overlay {
+  animation: fadeInGlow 0.3s ease-out;
+  backdrop-filter: blur(8px);
+}
+
+.character-detail-overlay > .holo-card {
+  animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  animation: slideInBottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loading Screen Pulse */
+.holo-loading {
+  animation: holo-spin 1s linear infinite, pulseGlow 2s ease-in-out infinite;
+}
+
+/* Filter Chips */
+.filter-chip {
+  animation: scaleIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--holo-transition);
+}
+
+.filter-chip:hover {
+  transform: scale(1.05);
+  box-shadow: var(--holo-glow);
+}
+
+/* Header Navigation */
+.app-header nav a {
+  position: relative;
+  transition: var(--holo-transition);
+}
+
+.app-header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--holo-primary);
+  transition: width 0.3s ease;
+}
+
+.app-header nav a:hover::after {
+  width: 100%;
+}
+
+/* Error Message Animation */
+.error-message {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* Success Message */
+.success-message {
+  animation: slideInTop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Skeleton Loading */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 243, 255, 0.1) 0%,
+    rgba(0, 243, 255, 0.2) 50%,
+    rgba(0, 243, 255, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Focus Styles for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--holo-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 243, 255, 0.3);
+}
+
+/* Print Styles */
+@media print {
+  .filter-panel,
+  .pagination-controls,
+  .app-header nav {
+    display: none;
+  }
+  
+  .holo-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --holo-primary: #00ffff;
+    --holo-text: #ffffff;
+    --holo-border: rgba(0, 255, 255, 1);
+  }
+}
+
+/* Dark Mode Preference (already dark, but ensure) */
+@media (prefers-color-scheme: dark) {
+  body {
+    color-scheme: dark;
+  }
+}
+
+/* Selection Styling */
+::selection {
+  background: rgba(0, 243, 255, 0.3);
+  color: var(--holo-white);
+}
+
+::-moz-selection {
+  background: rgba(0, 243, 255, 0.3);
+  color: var(--holo-white);
+}
+
+/* Tooltip Styles */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  padding: 0.5rem 1rem;
+  background: var(--holo-bg-dark);
+  border: 1px solid var(--holo-border);
+  border-radius: 4px;
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* Mobile Touch Improvements */
+@media (hover: none) and (pointer: coarse) {
+  .holo-button,
+  .holo-card,
+  .character-card {
+    -webkit-tap-highlight-color: rgba(0, 243, 255, 0.2);
+  }
+  
+  .holo-button:active,
+  .character-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Loading State for Images */
+img[loading="lazy"] {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 243, 255, 0.05) 0%,
+    rgba(0, 243, 255, 0.1) 50%,
+    rgba(0, 243, 255, 0.05) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--holo-transition);
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+}
+
