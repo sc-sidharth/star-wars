@@ -2,7 +2,7 @@
 
 An immersive, holographic-style Star Wars encyclopedia featuring interactive 3D planet visualizations, character search, and an epic space battle background animation.
 
-🌐 **[View Live Demo](#)** _(Add your Vercel URL here after deployment)_
+🌐 **[View Live Demo](https://star-wars-nu-three.vercel.app/)**  
 
 ![Star Wars Encyclopedia](https://img.shields.io/badge/Star%20Wars-Encyclopedia-00f3ff?style=for-the-badge)
 ![Built with React](https://img.shields.io/badge/React-18.3-61dafb?style=for-the-badge&logo=react)
